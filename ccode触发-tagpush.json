@@ -1,0 +1,269 @@
+{
+  "model" : {
+    "@type" : "Model",
+    "desc" : "",
+    "events" : { },
+    "instanceFromTemplate" : false,
+    "labels" : [ ],
+    "latestVersion" : 1,
+    "name" : "ccode触发-tagpush",
+    "pipelineCreator" : "liangjin",
+    "stages" : [ {
+      "containers" : [ {
+        "@type" : "trigger",
+        "classType" : "trigger",
+        "containerHashId" : "c-db533afb142a4e5b95b8d8f7d42a7e41",
+        "containerId" : "0",
+        "elements" : [ {
+          "@type" : "manualTrigger",
+          "atomCode" : "manualTrigger",
+          "canElementSkip" : false,
+          "classType" : "manualTrigger",
+          "executeCount" : 1,
+          "id" : "T-1-1-1",
+          "name" : "手动触发",
+          "taskAtom" : "",
+          "useLatestParameters" : false,
+          "version" : "1.*"
+        }, {
+          "@type" : "codeScmGitWebHookTrigger",
+          "additionalOptions" : {
+            "continueWhenFailed" : false,
+            "customCondition" : "",
+            "customVariables" : [ {
+              "key" : "param1",
+              "value" : ""
+            } ],
+            "enable" : true,
+            "enableCustomEnv" : false,
+            "manualRetry" : false,
+            "manualSkip" : false,
+            "notifyTypesOnFailed" : [ ],
+            "notifyTypesOnSuccessed" : [ ],
+            "notifyUserGroupsOnFailed" : [ ],
+            "notifyUserGroupsOnSuccessed" : [ ],
+            "notifyUsersOnFailed" : [ ],
+            "notifyUsersOnSuccessed" : [ ],
+            "otherTask" : "",
+            "pauseBeforeExec" : false,
+            "retryCount" : 1,
+            "retryWhenFailed" : false,
+            "runCondition" : "PRE_TASK_SUCCESS",
+            "subscriptionPauseUser" : "",
+            "timeout" : 900,
+            "timeoutVar" : "900"
+          },
+          "atomCode" : "codeScmGitWebHookTrigger",
+          "classType" : "codeScmGitWebHookTrigger",
+          "data" : {
+            "input" : {
+              "actions" : [ ],
+              "branchName" : "",
+              "enableCheck" : true,
+              "eventType" : "TAG_PUSH",
+              "excludeBranchName" : "",
+              "excludePaths" : "",
+              "excludeSourceBranchName" : "",
+              "excludeTagName" : "",
+              "excludeUsers" : "",
+              "includeNoteComment" : "",
+              "includeNoteTypes" : [ "Commit", "Review", "Issue" ],
+              "includePaths" : "",
+              "includeSourceBranchName" : "",
+              "includeUsers" : "",
+              "pathFilterType" : "NamePrefixFilter",
+              "repositoryHashId" : "5Ko5",
+              "repositoryName" : "",
+              "repositoryType" : "ID",
+              "scmCode" : "bkCode",
+              "tagName" : ""
+            }
+          },
+          "executeCount" : 1,
+          "id" : "e-0c6f27b6205a44d5a25fe611d3000653",
+          "name" : "通用GIT触发",
+          "taskAtom" : "",
+          "version" : "1.*"
+        } ],
+        "id" : "0",
+        "matrixGroupFlag" : false,
+        "name" : "trigger",
+        "params" : [ ]
+      } ],
+      "fastKill" : false,
+      "finally" : false,
+      "id" : "stage-1",
+      "name" : "stage-1",
+      "tag" : [ "28ee946a59f64949a74f3dee40a1bda4" ]
+    }, {
+      "checkIn" : {
+        "manualTrigger" : false,
+        "markdownContent" : false,
+        "notifyType" : [ "RTX" ],
+        "timeout" : 24
+      },
+      "checkOut" : {
+        "manualTrigger" : false,
+        "markdownContent" : false,
+        "notifyType" : [ "RTX" ],
+        "timeout" : 24
+      },
+      "containers" : [ {
+        "@type" : "vmBuild",
+        "agentBind" : true,
+        "armFlag" : false,
+        "baseOS" : "LINUX",
+        "buildEnv" : { },
+        "classType" : "vmBuild",
+        "containerHashId" : "c-183b5b08920d4013966414405515b11e",
+        "containerId" : "1",
+        "dispatchType" : {
+          "buildType" : "DOCKER",
+          "credentialId" : "",
+          "credentialProject" : "",
+          "imageCode" : "",
+          "imageName" : "",
+          "imagePublicFlag" : false,
+          "imageRDType" : "",
+          "imageRepositoryPassword" : "",
+          "imageRepositoryUserName" : "",
+          "imageType" : "BKDEVOPS",
+          "imageVersion" : "",
+          "performanceConfigId" : 0,
+          "recommendFlag" : true,
+          "value" : "bkdevops/ubuntu:7.2.0"
+        },
+        "elements" : [ {
+          "@type" : "linuxScript",
+          "additionalOptions" : {
+            "continueWhenFailed" : false,
+            "customCondition" : "",
+            "customVariables" : [ {
+              "key" : "param1",
+              "value" : ""
+            } ],
+            "enable" : true,
+            "enableCustomEnv" : false,
+            "manualRetry" : false,
+            "manualSkip" : false,
+            "notifyTypesOnFailed" : [ ],
+            "notifyTypesOnSuccessed" : [ ],
+            "notifyUserGroupsOnFailed" : [ ],
+            "notifyUserGroupsOnSuccessed" : [ ],
+            "notifyUsersOnFailed" : [ ],
+            "notifyUsersOnSuccessed" : [ ],
+            "otherTask" : "",
+            "pauseBeforeExec" : false,
+            "retryCount" : 1,
+            "retryWhenFailed" : false,
+            "runCondition" : "PRE_TASK_SUCCESS",
+            "subscriptionPauseUser" : "",
+            "timeout" : 900,
+            "timeoutVar" : "900"
+          },
+          "archiveFile" : "",
+          "atomCode" : "linuxScript",
+          "classType" : "linuxScript",
+          "continueNoneZero" : false,
+          "enableArchiveFile" : false,
+          "executeCount" : 1,
+          "id" : "e-1f9550ad3987492a819cb14fafedebc8",
+          "name" : "Bash",
+          "script" : "#!/usr/bin/env bash\n# 通过 ./xxx.sh方式执行脚本. 解释器默认指定为bash\n\n# 旧的${}引用变量的方式已升级为${{}}，避免和bash原生方式冲突\n\n# 通过::set-variable命令字设置/修改全局变量(在当前步骤执行完才生效)\n# echo \"::set-variable name=<var_name>::<value>\"\n# 在后续的插件表单中使用表达式${{variables.<var_name>}}引用这个变量\n# 注意：旧的通过setEnv设置变量的方式仍然保留，但存在一些历史问题，已停止迭代，不再推荐使用\n\n# 通过::set-output命令字设置当前步骤的输出(变量隔离，不会被覆盖)\n# echo \"::set-output name=<output_name>::<value>\"\n# 在后续的插件表单中使用表达式${{jobs.<job_id>.steps.<step_id>.outputs.<output_name>}}引用这个输出，其中job_id和step_id在对应的Job和Task上配置\n\n# 在质量红线中创建自定义指标后，通过setGateValue函数设置指标值\n# setGateValue \"CodeCoverage\" $myValue\n# 然后在质量红线选择相应指标和阈值。若不满足，流水线在执行时将会被卡住\n\n# cd ${{ci.workspace}} 可进入当前工作空间目录",
+          "scriptType" : "SHELL",
+          "taskAtom" : "",
+          "version" : "1.*"
+        } ],
+        "enableExternal" : false,
+        "id" : "1",
+        "jobControlOption" : {
+          "continueWhenFailed" : false,
+          "customCondition" : "",
+          "customVariables" : [ {
+            "key" : "param1",
+            "value" : ""
+          } ],
+          "dependOnId" : [ ],
+          "dependOnName" : "",
+          "dependOnType" : "ID",
+          "enable" : true,
+          "prepareTimeout" : 10,
+          "runCondition" : "STAGE_RUNNING",
+          "timeout" : 900,
+          "timeoutVar" : "900"
+        },
+        "jobId" : "job_ak5",
+        "matrixGroupFlag" : false,
+        "maxQueueMinutes" : 60,
+        "maxRunningMinutes" : 900,
+        "name" : "构建环境-Linux",
+        "nfsSwitch" : false,
+        "showBuildResource" : false,
+        "vmNames" : [ ]
+      } ],
+      "fastKill" : false,
+      "finally" : false,
+      "id" : "stage-2",
+      "name" : "stage-1",
+      "stageControlOption" : {
+        "customCondition" : "",
+        "customVariables" : [ {
+          "key" : "param1",
+          "value" : ""
+        } ],
+        "enable" : true,
+        "manualTrigger" : false,
+        "runCondition" : "AFTER_LAST_FINISHED",
+        "timeout" : 24,
+        "triggerUsers" : [ ]
+      },
+      "tag" : [ "28ee946a59f64949a74f3dee40a1bda4" ]
+    } ],
+    "staticViews" : [ ]
+  },
+  "setting" : {
+    "buildCancelPolicy" : "EXECUTE_PERMISSION",
+    "cleanVariablesWhenRetry" : false,
+    "concurrencyCancelInProgress" : false,
+    "concurrencyGroup" : "${{ci.pipeline_id}}",
+    "desc" : "",
+    "failIfVariableInvalid" : false,
+    "failSubscription" : {
+      "content" : "",
+      "detailFlag" : false,
+      "groups" : [ ],
+      "types" : [ ],
+      "users" : "",
+      "wechatGroup" : "",
+      "wechatGroupFlag" : false,
+      "wechatGroupMarkdownFlag" : false
+    },
+    "failSubscriptionList" : [ ],
+    "labelNames" : [ ],
+    "labels" : [ ],
+    "maxPipelineResNum" : 50,
+    "maxQueueSize" : 10,
+    "pipelineAsCodeSettings" : {
+      "enable" : false,
+      "inheritedDialect" : false,
+      "pipelineDialect" : "CLASSIC"
+    },
+    "pipelineId" : "p-f12419dd965544f7888e41f0b767eb79",
+    "pipelineName" : "ccode触发-tagpush",
+    "projectId" : "z839bb",
+    "runLockType" : "MULTIPLE",
+    "successSubscription" : {
+      "content" : "",
+      "detailFlag" : false,
+      "groups" : [ ],
+      "types" : [ ],
+      "users" : "",
+      "wechatGroup" : "",
+      "wechatGroupFlag" : false,
+      "wechatGroupMarkdownFlag" : false
+    },
+    "successSubscriptionList" : [ ],
+    "version" : 2,
+    "waitQueueTimeMinute" : 10
+  }
+}
